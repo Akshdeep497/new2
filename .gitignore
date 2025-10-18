@@ -1,0 +1,26 @@
+# Node (React/Vite)
+node_modules/
+dist/
+build/
+*.log
+
+# Python (FastAPI)
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+coverage/
+
+# Environment files
+.env
+.env.*
+
+# Editors/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
