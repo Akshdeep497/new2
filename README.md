@@ -52,23 +52,6 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 
 ```
-1. Navigate to backend directory:
-
-2. Create and activate a virtual environment:
-- On Windows (PowerShell):
-  ```
-  python -m venv .venv
-  .\.venv\Scripts\Activate.ps1
-  ```
-- On macOS/Linux:
-  ```
-  python3 -m venv .venv
-  source .venv/bin/activate
-  ```
-
-3. Install dependencies:
-
-4. Run the FastAPI server:
 
 Backend API docs available at `http://127.0.0.1:8000/docs`.
 
@@ -87,15 +70,7 @@ npm install
 npm run dev -- --host --port 5176
 
 ```
-1. Navigate to frontend directory:
 
-2. Install dependencies:
-
-3. Create `.env` with backend API base URL (if not already done).
-
-4. Start development server:
-
-5. Open `http://localhost:5176` in your browser.
 
 ## Running the App
 
@@ -154,5 +129,6 @@ MIT or your preferred license. Add a LICENSE file if publishing publicly.
 ---
 
 If you need help with deployment on specific platforms or further customization, please check the respective platform guides or contact the maintainer.
+
 
 
