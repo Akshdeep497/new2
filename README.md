@@ -22,9 +22,7 @@ This project is a full-stack furniture product recommendation system with semant
 ### Backend
 
 - `GEMINI_API_KEY`: Your Gemini Pro API key to access generative AI services.
-- Optional for vector DB:
-  - `PINECONE_API_KEY`
-  - `PINECONE_INDEX_NAME`
+
 
 Example: create a `.env` file in `ikarus-backend/backend` (ignored by Git) or set environment variables directly in your deployment platform.
 
@@ -37,7 +35,23 @@ Create a `.env` file in `ikarus-frontend`:
 ## Setup & Run Locally
 
 ### Backend (FastAPI)
+```
+# Navigate to the backend folder
+cd ikarus-backend/backend
 
+# Create a virtual environment (only once)
+python -m venv .venv
+
+# Activate the virtual environment
+.\.venv\Scripts\Activate.ps1
+
+# Install dependencies (only once or after changes)
+pip install -r requirements.txt
+
+# Run the FastAPI backend server
+uvicorn app.main:app --reload --port 8000
+
+```
 1. Navigate to backend directory:
 
 2. Create and activate a virtual environment:
@@ -60,6 +74,19 @@ Backend API docs available at `http://127.0.0.1:8000/docs`.
 
 ### Frontend (React + Vite)
 
+```
+# Navigate to the frontend folder
+cd ikarus-frontend
+
+# Install npm dependencies (only once or after package.json changes)
+npm install
+
+# Ensure your .env file has VITE_API_BASE_URL=http://127.0.0.1:8000
+
+# Run the React frontend development server
+npm run dev -- --host --port 5176
+
+```
 1. Navigate to frontend directory:
 
 2. Install dependencies:
@@ -127,4 +154,5 @@ MIT or your preferred license. Add a LICENSE file if publishing publicly.
 ---
 
 If you need help with deployment on specific platforms or further customization, please check the respective platform guides or contact the maintainer.
+
 
