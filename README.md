@@ -2,6 +2,31 @@
 
 This project is a full-stack furniture product recommendation system with semantic search, computer vision-aware reranking, and generative AI descriptions powered by FastAPI backend and React frontend.
 
+#What I used
+Backend: FastAPI, Uvicorn, Pydantic
+
+Frontend: React (Vite), React Router
+
+Dataset: intern_data_ikarus.csv
+
+ML (recommendations): sentence-transformers all-MiniLM-L6-v2 (384‑dim), cosine similarity search
+
+NLP: Hugging Face Transformers, text normalization, LangChain for orchestration
+
+CV: MobileNetV3‑Small for offline image category labels (cv_label, cv_conf)
+
+GenAI: Google Gemini Pro API via LangChain for per‑item descriptions
+
+Vector database: FAISS (local dev) and Pinecone (cloud semantic search)
+
+Analytics: pandas, numpy, seaborn, matplotlib (analytics.ipynb)
+
+Config: .env for secrets (GEMINI_API_KEY, Pinecone keys), CORS in FastAPI
+
+Deployment: Frontend on Vercel (static), Backend on Vercel Python Serverless Functions
+
+Build tools: Node.js 18+, Python 3.10+, Git
+
 ## Features
 
 - Backend (FastAPI) exposing APIs for recommendation, analytics, and generative descriptions.
@@ -129,6 +154,7 @@ MIT or your preferred license. Add a LICENSE file if publishing publicly.
 ---
 
 If you need help with deployment on specific platforms or further customization, please check the respective platform guides or contact the maintainer.
+
 
 
 
