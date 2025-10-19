@@ -2,7 +2,7 @@
 
 This project is a full-stack furniture product recommendation system with semantic search, computer vision-aware reranking, and generative AI descriptions powered by FastAPI backend and React frontend.
 
-#What I used
+# What I used
 Backend: FastAPI, Uvicorn, Pydantic
 
 Frontend: React (Vite), React Router
@@ -154,6 +154,7 @@ MIT or your preferred license. Add a LICENSE file if publishing publicly.
 ---
 
 If you need help with deployment on specific platforms or further customization, please check the respective platform guides or contact the maintainer.
+
 
 
 
