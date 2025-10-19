@@ -23,7 +23,10 @@ This project is a full-stack furniture product recommendation system with semant
 
 ### Backend
 
-- `GEMINI_API_KEY`: Your Gemini Pro API key to access generative AI services.
+- `GEMINI_API_KEY`: AIzaSyBVUaP6WyC-ngFkBZR6MPYaovxL4gb8C08
+  ```
+  GEMINI_API_KEY=AIzaSyBVUaP6WyC-ngFkBZR6MPYaovxL4gb8C08
+  ```
 
 
 Example: create a `.env` file in `ikarus-backend/backend` (ignored by Git) or set environment variables directly in your deployment platform.
@@ -165,6 +168,7 @@ Analytics normalizes prices (currency symbols, ranges) and parses categories for
 MIT or your preferred license. Add a LICENSE file if publishing publicly.
 
 ---
+
 
 
 
