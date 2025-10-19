@@ -2,30 +2,7 @@
 
 This project is a full-stack furniture product recommendation system with semantic search, computer vision-aware reranking, and generative AI descriptions powered by FastAPI backend and React frontend.
 
-# What I used
-Backend: FastAPI, Uvicorn, Pydantic
 
-Frontend: React (Vite), React Router
-
-Dataset: intern_data_ikarus.csv
-
-ML (recommendations): sentence-transformers all-MiniLM-L6-v2 (384‑dim), cosine similarity search
-
-NLP: Hugging Face Transformers, text normalization, LangChain for orchestration
-
-CV: MobileNetV3‑Small for offline image category labels (cv_label, cv_conf)
-
-GenAI: Google Gemini Pro API via LangChain for per‑item descriptions
-
-Vector database: FAISS (local dev) and Pinecone (cloud semantic search)
-
-Analytics: pandas, numpy, seaborn, matplotlib (analytics.ipynb)
-
-Config: .env for secrets (GEMINI_API_KEY, Pinecone keys), CORS in FastAPI
-
-Deployment: Frontend on Vercel (static), Backend on Vercel Python Serverless Functions
-
-Build tools: Node.js 18+, Python 3.10+, Git
 
 ## Features
 
@@ -146,14 +123,51 @@ Thumbs.db
 - Cache expensive generated descriptions to reduce calls to generative AI services.
 - Maintain consistent embedding dimensions (384 for all-MiniLM-L6-v2).
 - Regularly rotate and protect your API keys, never commit them to version control.
+# what is used 
+# Machine Learning (ML)
+Implemented embedding-based semantic recommendation using SentenceTransformer all-MiniLM-L6-v2 with normalized embeddings and FAISS inner-product search; indices are built from CSV via build_indices and persisted under data/ikarus_index.*.​
 
+API: POST /recommend takes {query, k} and returns top-k items with similarity scores and product metadata for rendering.​
+
+Key modules: embed.py (encoder), retriever.py (query > FAISS), vector_store.py (FAISS), ingest.py (CSV > index), recommend.py (endpoint).​
+
+# Natural Language Processing (NLP)
+Product text is composed from title, description, categories, brand, material, and color, then encoded into 384‑dim vectors for grouping similar or related products.​
+
+Normalized embeddings enable cosine-equivalent inner-product retrieval in FAISS for clustering and top‑k semantic matches.​
+
+# Computer Vision (CV)
+Current build parses and returns product image URLs from the dataset and surfaces a cv_label histogram in analytics if the column exists; the classifier itself is planned as a next step.​
+
+Planned: add a lightweight classifier (e.g., ResNet18/ViT‑tiny) to predict category/type per image and write outputs to cv_label for analytics and UI filtering.​
+
+# Generative AI (GenAI)
+Integrated LangChain ChatGoogleGenerativeAI with model “gemini‑2.5‑flash‑lite” to generate 60–90 word product design descriptions via POST /recommend/gen-desc.​
+
+Uses GOOGLE_API_KEY; generation is decoupled from retrieval to control latency/cost and can be invoked per recommended item from the frontend.​
+
+# Vector Database
+Using FAISS CPU (IndexFlatIP) persisted to .index and .meta.json; vectors are 384‑dim MiniLM embeddings and searched via inner product.​
+
+To switch to Pinecone, replace FaissStore usage in ingestion/retrieval with a Pinecone client while keeping the same stored metadata structure.​
+
+# Frontend (React)
+Vite + React frontend calls POST /recommend with the user prompt and then POST /recommend/gen-desc for each item to render product cards with images and generated descriptions.​
+
+CORS is configured to allow localhost dev servers on ports 5173, 5175, and 5176 for smooth local development.​
+
+# Analytics Page
+GET /analytics/summary returns total products, price stats (avg, median, p10, p90), top categories/brands, image coverage, and an optional cv_label histogram if present.​
+
+Analytics normalizes prices (currency symbols, ranges) and parses categories for histograms; consume this route in a React page with charts via client-side routing.
 ## License
 
 MIT or your preferred license. Add a LICENSE file if publishing publicly.
 
 ---
 
-If you need help with deployment on specific platforms or further customization, please check the respective platform guides or contact the maintainer.
+
+
 
 
 
