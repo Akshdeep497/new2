@@ -127,3 +127,4 @@ MIT or your preferred license. Add a LICENSE file if publishing publicly.
 ---
 
 If you need help with deployment on specific platforms or further customization, please check the respective platform guides or contact the maintainer.
+
