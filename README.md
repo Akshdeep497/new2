@@ -1,7 +1,12 @@
 
-# The live application is hosted on Vercel. You can access it here:
+# Live Deployment
 
-https://new2-mu-six.vercel.app
+Frontend (Vercel): https://new2-mu-six.vercel.app
+
+Backend API (Hugging Face): https://akshdeep497-ikuras.hf.space
+
+API Docs (Swagger UI): https://akshdeep497-ikuras.hf.space/docs
+
 
 # Ikuras Product Recommendation & Analytics Web App
 
