@@ -1,3 +1,8 @@
+
+# The live application is hosted on Vercel. You can access it here:
+
+https://new2-mu-six.vercel.app
+
 # Ikuras Product Recommendation & Analytics Web App
 
 This project is a full-stack furniture product recommendation system with semantic search, computer vision-aware reranking, and generative AI descriptions powered by FastAPI backend and React frontend.
@@ -168,6 +173,7 @@ Analytics normalizes prices (currency symbols, ranges) and parses categories for
 MIT or your preferred license. Add a LICENSE file if publishing publicly.
 
 ---
+
 
 
 
